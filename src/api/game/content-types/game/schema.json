@@ -64,6 +64,9 @@
     },
     "selectedTags": {
       "type": "json"
+    },
+    "Upvotes": {
+      "type": "json"
     }
   }
 }
