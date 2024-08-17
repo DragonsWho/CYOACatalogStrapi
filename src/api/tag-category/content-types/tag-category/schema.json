@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tag_categories",
+  "info": {
+    "singularName": "tag-category",
+    "pluralName": "tag-categories",
+    "displayName": "TagCategory",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "AllowNewTags": {
+      "type": "boolean"
+    },
+    "MinTags": {
+      "type": "integer"
+    },
+    "MaxTags": {
+      "type": "integer"
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tag.tag",
+      "mappedBy": "tag_category"
+    },
+    "Description": {
+      "type": "text"
+    }
+  }
+}
