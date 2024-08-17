@@ -362,6 +362,149 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
+export interface ApiAuthorAuthor extends Schema.CollectionType {
+  collectionName: 'authors';
+  info: {
+    singularName: 'author';
+    pluralName: 'authors';
+    displayName: 'Author';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Name: Attribute.String;
+    games: Attribute.Relation<
+      'api::author.author',
+      'manyToMany',
+      'api::game.game'
+    >;
+    Description: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::author.author',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::author.author',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiGameGame extends Schema.CollectionType {
+  collectionName: 'games';
+  info: {
+    singularName: 'game';
+    pluralName: 'games';
+    displayName: 'Game';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String;
+    Description: Attribute.Blocks;
+    Image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    tags: Attribute.Relation<'api::game.game', 'manyToMany', 'api::tag.tag'>;
+    img_or_link: Attribute.Enumeration<['img', 'link']>;
+    iframe_url: Attribute.String;
+    CYOA_pages: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    authors: Attribute.Relation<
+      'api::game.game',
+      'manyToMany',
+      'api::author.author'
+    >;
+    selectedTags: Attribute.JSON;
+    Upvotes: Attribute.JSON;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::game.game', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::game.game', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTagTag extends Schema.CollectionType {
+  collectionName: 'tags';
+  info: {
+    singularName: 'tag';
+    pluralName: 'tags';
+    displayName: 'Tag';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Name: Attribute.String;
+    games: Attribute.Relation<'api::tag.tag', 'manyToMany', 'api::game.game'>;
+    Description: Attribute.Text;
+    tag_category: Attribute.Relation<
+      'api::tag.tag',
+      'manyToOne',
+      'api::tag-category.tag-category'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::tag.tag', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::tag.tag', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTagCategoryTagCategory extends Schema.CollectionType {
+  collectionName: 'tag_categories';
+  info: {
+    singularName: 'tag-category';
+    pluralName: 'tag-categories';
+    displayName: 'TagCategory';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Name: Attribute.String;
+    AllowNewTags: Attribute.Boolean;
+    MinTags: Attribute.Integer;
+    MaxTags: Attribute.Integer;
+    tags: Attribute.Relation<
+      'api::tag-category.tag-category',
+      'oneToMany',
+      'api::tag.tag'
+    >;
+    Description: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::tag-category.tag-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::tag-category.tag-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -903,148 +1046,6 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
-export interface ApiAuthorAuthor extends Schema.CollectionType {
-  collectionName: 'authors';
-  info: {
-    singularName: 'author';
-    pluralName: 'authors';
-    displayName: 'Author';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Name: Attribute.String;
-    games: Attribute.Relation<
-      'api::author.author',
-      'manyToMany',
-      'api::game.game'
-    >;
-    Description: Attribute.Text;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::author.author',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::author.author',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiGameGame extends Schema.CollectionType {
-  collectionName: 'games';
-  info: {
-    singularName: 'game';
-    pluralName: 'games';
-    displayName: 'Game';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Title: Attribute.String;
-    Description: Attribute.Blocks;
-    Image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    tags: Attribute.Relation<'api::game.game', 'manyToMany', 'api::tag.tag'>;
-    img_or_link: Attribute.Enumeration<['img', 'link']>;
-    iframe_url: Attribute.String;
-    CYOA_pages: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
-    authors: Attribute.Relation<
-      'api::game.game',
-      'manyToMany',
-      'api::author.author'
-    >;
-    selectedTags: Attribute.JSON;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::game.game', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::game.game', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
-export interface ApiTagTag extends Schema.CollectionType {
-  collectionName: 'tags';
-  info: {
-    singularName: 'tag';
-    pluralName: 'tags';
-    displayName: 'Tag';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Name: Attribute.String;
-    games: Attribute.Relation<'api::tag.tag', 'manyToMany', 'api::game.game'>;
-    Description: Attribute.Text;
-    tag_category: Attribute.Relation<
-      'api::tag.tag',
-      'manyToOne',
-      'api::tag-category.tag-category'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::tag.tag', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::tag.tag', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
-export interface ApiTagCategoryTagCategory extends Schema.CollectionType {
-  collectionName: 'tag_categories';
-  info: {
-    singularName: 'tag-category';
-    pluralName: 'tag-categories';
-    displayName: 'TagCategory';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Name: Attribute.String;
-    AllowNewTags: Attribute.Boolean;
-    MinTags: Attribute.Integer;
-    MaxTags: Attribute.Integer;
-    tags: Attribute.Relation<
-      'api::tag-category.tag-category',
-      'oneToMany',
-      'api::tag.tag'
-    >;
-    Description: Attribute.Text;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::tag-category.tag-category',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::tag-category.tag-category',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1055,6 +1056,10 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
+      'api::author.author': ApiAuthorAuthor;
+      'api::game.game': ApiGameGame;
+      'api::tag.tag': ApiTagTag;
+      'api::tag-category.tag-category': ApiTagCategoryTagCategory;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -1065,10 +1070,6 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
-      'api::author.author': ApiAuthorAuthor;
-      'api::game.game': ApiGameGame;
-      'api::tag.tag': ApiTagTag;
-      'api::tag-category.tag-category': ApiTagCategoryTagCategory;
     }
   }
 }
