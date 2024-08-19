@@ -40,4 +40,17 @@ email: {
     },
   },
 },
+  upload: {
+    config: {
+      providerOptions: {
+        localServer: {
+          maxage: 300000
+        },
+      },
+    },
+  },
+  logger: {
+    level: 'debug',
+    // Другие настройки логгера...
+  },
 });
