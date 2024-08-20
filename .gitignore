@@ -67,9 +67,9 @@ $RECYCLE.BIN/
 
 .tmp
 *.log
-*.sql
-*.sqlite
-*.sqlite3
+# *.sql  # Раскомментировано, чтобы включить SQL файлы
+# *.sqlite  # Раскомментировано, чтобы включить SQLite файлы
+# *.sqlite3  # Раскомментировано, чтобы включить SQLite3 файлы
 
 
 ############################
@@ -108,8 +108,15 @@ coverage
 .env
 license.txt
 exports
-.strapi
+# .strapi  # Раскомментировано, чтобы включить конфигурацию Strapi
 dist
 build
 .strapi-updater.json
 .strapi-cloud.json
+
+############################
+# Media Library
+############################
+
+public/uploads/*
+!public/uploads/.gitkeep
