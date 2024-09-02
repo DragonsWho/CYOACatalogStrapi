@@ -111,7 +111,7 @@ dist
 build
 .strapi-updater.json
 .strapi-cloud.json
-.tmp
+.tmp/
 
 ############################
 # Media Library
