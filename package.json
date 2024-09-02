@@ -4,11 +4,12 @@
   "version": "0.1.0",
   "description": "A Strapi application",
   "scripts": {
-    "develop": "strapi develop --env-path .env.development",
+    "develop": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
     "strapi": "strapi",
-    "deploy": "strapi deploy"
+    "deploy": "strapi deploy",
+    "extractdb": "node scripts/extractDb.js"
   },
   "dependencies": {
     "@strapi/plugin-cloud": "4.25.5",
@@ -22,7 +23,6 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "5.3.4",
-    "sqlite3": "^5.1.7",
     "strapi-plugin-comments": "^2.3.0",
     "styled-components": "5.3.3"
   },
