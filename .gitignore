@@ -69,7 +69,7 @@ $RECYCLE.BIN/
 *.sql  
 *.sqlite   
 *.sqlite3  
-!.tmp/data.db
+.tmp/data.db
 
 ############################
 # Misc.
@@ -107,7 +107,7 @@ coverage
 .env
 license.txt
 exports
-.strapi   
+# .strapi   
 dist
 build
 .strapi-updater.json
