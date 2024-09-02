@@ -50,7 +50,6 @@ email: {
     },
   },
   logger: {
-    level: 'debug',
-    // Другие настройки логгера...
+    level: 'debug', 
   },
 });

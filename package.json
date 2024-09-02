@@ -9,7 +9,7 @@
     "build": "strapi build",
     "strapi": "strapi",
     "deploy": "strapi deploy",
-    "extractdb": "node scripts/extractDb.js"
+    "extractdb": "node .devsetup/extractDb.js"
   },
   "dependencies": {
     "@strapi/plugin-cloud": "4.25.5",
