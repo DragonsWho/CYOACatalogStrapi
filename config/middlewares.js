@@ -3,18 +3,28 @@ module.exports = [
   {
     name: 'strapi::security',
     config: {
-      contentSecurityPolicy: false,
-      cors: {
-        enabled: true,
-        origin: ['http://localhost:5173'],
-        credentials: true,
-        methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
-        headers: ['Content-Type', 'Authorization', 'Origin', 'Accept'],
-        exposedHeaders: ['Content-Range', 'X-Content-Range'],
+      contentSecurityPolicy: {
+        useDefaults: true,
+        directives: {
+          'connect-src': ["'self'", 'https:', 'http:'],
+          'img-src': ["'self'", 'data:', 'blob:', 'https:', 'http:'],
+          'media-src': ["'self'", 'data:', 'blob:', 'https:', 'http:'],
+          upgradeInsecureRequests: null,
+        },
       },
     },
   },
-  'strapi::cors',
+  {
+    name: 'strapi::cors',
+    config: {
+      enabled: true,
+      headers: ['*'],
+      origin: ['*'],
+      methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
+      keepHeaderOnError: true,
+      credentials: true,
+    },
+  },
   'strapi::poweredBy',
   'strapi::logger',
   'strapi::query',
