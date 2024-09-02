@@ -79,8 +79,7 @@ $RECYCLE.BIN/
 ssl
 .idea
 nbproject
-public/uploads/*
-!public/uploads/.gitkeep
+
 
 ############################
 # Node.js
@@ -112,6 +111,7 @@ dist
 build
 .strapi-updater.json
 .strapi-cloud.json
+.tmp
 
 ############################
 # Media Library
@@ -119,3 +119,5 @@ build
 
 public/uploads/*
 !public/uploads/.gitkeep
+public/uploads_temp/*
+!public/uploads_temp/.gitkeep
