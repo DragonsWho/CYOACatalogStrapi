@@ -118,6 +118,10 @@ build
 .strapi/client/
 types/generated/
 
+!.devsetup/testdb.tar.gz
+.strapi/client/app.js
+.strapi/client/index.html
+
 ############################
 # Media Library
 ############################
@@ -127,6 +131,4 @@ public/uploads/*
 public/uploads_temp/*
 !public/uploads_temp/.gitkeep
 
-!.devsetup/testdb.tar.gz
-.strapi/client/app.js
-.strapi/client/index.html
+
