@@ -106,21 +106,17 @@ coverage
 .env
 license.txt
 exports
-.strapi
-.strapi/**
 dist
 build
 .strapi-cloud.json
 .tmp/
 .cache/
 .strapi-updater.json
+/.strapi
 
-.strapi/client/
 types/generated/
 
 !.devsetup/testdb.tar.gz
-.strapi/client/app.js
-.strapi/client/index.html
 
 ############################
 # Media Library
@@ -130,6 +126,3 @@ public/uploads/*
 !public/uploads/.gitkeep
 public/uploads_temp/*
 !public/uploads_temp/.gitkeep
-
-
-/.strapi
