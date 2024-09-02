@@ -3,7 +3,7 @@ module.exports = ({ env }) => ({
   port: env.int('PORT', 1337),
   url: env('PUBLIC_URL', 'http://localhost:1337'),
   app: {
-    keys: [env('APP_KEY_A'), env('APP_KEY_B')],
+    keys: ['oiGFiduiI/Xsv5zSE2CHhA==', 'wBJvaX1YkSmzzg8oHJAvSA=='],
   },
   logger: {
     level: 'debug',
