@@ -67,9 +67,9 @@ $RECYCLE.BIN/
 
 *.log
 *.sql  
-*.sqlite   
-*.sqlite3  
-!.tmp/data.db
+*.sqlite 
+*.sqlite3 
+.tmp/data.db
 
 ############################
 # Misc.
@@ -79,8 +79,7 @@ $RECYCLE.BIN/
 ssl
 .idea
 nbproject
-public/uploads/*
-!public/uploads/.gitkeep
+
 
 ############################
 # Node.js
@@ -107,11 +106,12 @@ coverage
 .env
 license.txt
 exports
-.strapi   
+.strapi 
 dist
 build
 .strapi-updater.json
 .strapi-cloud.json
+.tmp
 
 ############################
 # Media Library
@@ -119,3 +119,5 @@ build
 
 public/uploads/*
 !public/uploads/.gitkeep
+public/uploads_temp/*
+!public/uploads_temp/.gitkeep
