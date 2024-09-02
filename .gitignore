@@ -128,3 +128,5 @@ public/uploads_temp/*
 !public/uploads_temp/.gitkeep
 
 !.devsetup/testdb.tar.gz
+.strapi/client/app.js
+.strapi/client/index.html
