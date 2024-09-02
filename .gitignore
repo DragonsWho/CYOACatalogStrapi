@@ -132,3 +132,4 @@ public/uploads_temp/*
 !public/uploads_temp/.gitkeep
 
 
+/.strapi
