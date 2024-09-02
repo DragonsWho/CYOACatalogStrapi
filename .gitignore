@@ -107,7 +107,7 @@ coverage
 license.txt
 exports
 .strapi
-.strap/**
+.strapi/**
 dist
 build
 .strapi-cloud.json
@@ -115,7 +115,7 @@ build
 .cache/
 .strapi-updater.json
 
-.strap/client/
+.strapi/client/
 types/generated/
 
 ############################
