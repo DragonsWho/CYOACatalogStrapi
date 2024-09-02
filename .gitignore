@@ -108,10 +108,16 @@ license.txt
 exports
 # .strapi   
 dist
-build
-.strapi-updater.json
+build 
 .strapi-cloud.json
 .tmp/
+.strap/client/
+types/generated/
+.cache/   
+.strapi-updater.json
+
+.strap/client/
+types/generated/
 
 ############################
 # Media Library
