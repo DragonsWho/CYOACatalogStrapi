@@ -127,3 +127,5 @@ public/uploads/*
 !public/uploads/.gitkeep
 public/uploads_temp/*
 !public/uploads_temp/.gitkeep
+
+!.devsetup/testdb.tar.gz
