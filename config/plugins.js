@@ -15,7 +15,7 @@ module.exports = ({ env }) => ({
           icon: 'discord',
           key: env('DISCORD_CLIENT_ID'),
           secret: env('DISCORD_CLIENT_SECRET'),
-          callback: 'https://api.cyoa.cafe/api/auth/discord/callback',
+          callback: '/api/auth/discord/callback',
           scope: ['identify', 'email'],
         },
       },
@@ -50,6 +50,7 @@ email: {
     },
   },
   logger: {
-    level: 'debug', 
+    level: 'debug',
+    // Äðóãèå íàñòðîéêè ëîããåðà...
   },
 });
