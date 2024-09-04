@@ -19,7 +19,7 @@ module.exports = [
     config: {
       enabled: true,
       headers: ['*'],
-      origin: ['*'],
+      origin: ['https://cyoa.cafe/'],
       methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
       keepHeaderOnError: true,
       credentials: true,

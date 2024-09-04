@@ -15,7 +15,7 @@ module.exports = ({ env }) => ({
           icon: 'discord',
           key: env('DISCORD_CLIENT_ID'),
           secret: env('DISCORD_CLIENT_SECRET'),
-          callback: '/api/auth/discord/callback',
+          callback: 'https://api.cyoa.cafe/api/auth/discord/callback',
           scope: ['identify', 'email'],
         },
       },
